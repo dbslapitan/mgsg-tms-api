@@ -7,7 +7,7 @@ export interface ICompany {
     email?: string;
     phone?: string;
   };
-  status: 'active' | 'inactive';
+  isActive: boolean;
 }
 
 const companySchema = new Schema<ICompany>({
@@ -20,10 +20,9 @@ const companySchema = new Schema<ICompany>({
     email: String,
     phone: String,
   },
-  status: {
-    type: String,
-    enum: ['active', 'inactive'],
-    default: 'inactive'
+  isActive: {
+    type: Boolean,
+    default: false
   },
 });
 
