@@ -4,6 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import { companyRoute } from './routes/company.js';
+import { staffRoute } from './routes/staff.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,11 +15,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/company", companyRoute);
+app.use("/api/v1/staff", staffRoute);
 
 app.get('/', (req, res) => {
   res.send('You have reached the server of MGSG TMS!');
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`[${new Date().toLocaleTimeString()}] Server is running on port ${port}`);
 });

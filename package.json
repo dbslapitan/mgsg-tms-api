@@ -11,8 +11,8 @@
     "clean": "rimraf dist",
     "build": "tsc",
     "start": "node dist/index.js",
-    "start-dev": "tsc-watch --onSuccess \"node dist/index.js\"",
-    "dev": "npm run clean && npm run build && npm run start-dev"
+    "start-dev": "tsc-watch --noClear --onSuccess \"node dist/index.js\"",
+    "dev": "npm run start-dev"
   },
   "dependencies": {
     "cors": "^2.8.6",
