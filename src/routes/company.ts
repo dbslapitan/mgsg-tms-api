@@ -1,13 +1,14 @@
 import { Router } from 'express';
 import { getAllCompanies, postCompany, getCompanyById, deleteCompanyById, updateCompanyById } from '../controllers/company.js';
-export const previewRoute = Router();
 
-previewRoute.get('/', getAllCompanies);
+export const companyRoute = Router();
 
-previewRoute.post('/', postCompany);
+companyRoute.get('/', getAllCompanies);
 
-previewRoute.get('/:id', getCompanyById);
+companyRoute.post('/', postCompany);
 
-previewRoute.delete('/:id', deleteCompanyById);
+companyRoute.get('/:id', getCompanyById);
 
-previewRoute.patch('/:id', updateCompanyById);
+companyRoute.delete('/:id', deleteCompanyById);
+
+companyRoute.patch('/:id', updateCompanyById);

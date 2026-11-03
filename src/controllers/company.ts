@@ -14,7 +14,6 @@ export const getAllCompanies = async (req: Request, res: Response) => {
 
 export const postCompany = async (req: Request, res: Response) => {
   const company = req.body;
-  console.log(company);
   try{
     const newCompany = await Company.create(company);
 
