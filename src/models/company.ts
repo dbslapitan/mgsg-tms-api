@@ -4,8 +4,8 @@ export interface ICompany {
   name: string;
   address?: string;
   contact?: {
-    email: string;
-    phone: string;
+    email?: string;
+    phone?: string;
   };
   status: 'active' | 'inactive';
 }
