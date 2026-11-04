@@ -13,4 +13,4 @@ staffRoute.get("/:id", getStaffById);
 
 staffRoute.delete("/:id", deleteStaffById);
 
-staffRoute.put("/:id", updateStaffById);
+staffRoute.patch("/:id", updateStaffById);

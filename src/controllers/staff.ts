@@ -50,7 +50,7 @@ export const updateStaffById = async (req: Request, res: Response) => {
     const { id } = req.params;
     const updates = req.body;
     try {
-        const staff = await Staff.findByIdAndUpdate(id, updates, { new: true });
+        const staff = await Staff.findByIdAndUpdate(id, updates);
         if (!staff) {
             return res.status(404).json({ message: 'Staff not found' });
         }
