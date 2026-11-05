@@ -6,7 +6,7 @@ export const getAllStaff = async (req: Request, res: Response) => {
     const staff = await Staff.find();
     res.status(200).json({data: staff});
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching staff', error });
+    res.status(500).json({ message: 'Error fetching all staff', error });
   }
 };
 
