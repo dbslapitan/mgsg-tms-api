@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 export interface IOwner {
+  _id?: string;
     truckingName: string;
     contact?: {
       name?: string;

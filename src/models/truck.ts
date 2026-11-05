@@ -1,7 +1,8 @@
 import { Schema, model } from "mongoose";
 import { IOwner } from "./owner.js";
 
-export interface ITrick{
+export interface ITruck{
+  _id?: string;
   licensePlate: string;
   type: string;
   owner: IOwner | string;
@@ -13,4 +14,4 @@ const truckSchema = new Schema({
   owner: { type: Schema.Types.ObjectId, ref: "Owner", required: true }
 });
 
-export const Truck = model<ITrick>("Truck", truckSchema);
+export const Truck = model<ITruck>("Truck", truckSchema);

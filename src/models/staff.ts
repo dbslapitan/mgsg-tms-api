@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 
 export interface IStaff {
+  _id?: string;
     name: {
         first: string;
         last: string;

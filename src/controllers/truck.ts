@@ -14,7 +14,7 @@ export const createTruck = async (req: Request, res: Response) => {
 
 export const getTrucks = async (req: Request, res: Response) => {
     try {
-        const trucks = await Truck.find();
+        const trucks = await Truck.find().populate('owner', "truckingName _id");
         res.status(200).json({data: trucks});
     } catch (error) {
         res.status(500).json({ message: 'Error fetching trucks', error });
@@ -24,7 +24,7 @@ export const getTrucks = async (req: Request, res: Response) => {
 export const getTruckById = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-        const truck = await Truck.findById(id);
+        const truck = await Truck.findById(id).populate('owner');
         if (!truck) {
             return res.status(404).json({ message: 'Truck not found' });
         }
