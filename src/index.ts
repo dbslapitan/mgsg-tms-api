@@ -8,6 +8,7 @@ import { staffRoute } from './routes/staff.js';
 import { ownerRoute } from './routes/owner.js';
 import { truckRouter } from './routes/truck.js';
 import { locationRoute } from './routes/location.js';
+import { rateRoute } from './routes/rate.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +23,7 @@ app.use("/api/v1/staff", staffRoute);
 app.use("/api/v1/owner", ownerRoute);
 app.use("/api/v1/truck", truckRouter);
 app.use("/api/v1/location", locationRoute);
+app.use("/api/v1/rate", rateRoute);
 
 
 app.get('/', (req, res) => {
