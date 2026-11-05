@@ -1,9 +1,7 @@
 import { Router } from "express";
-
+import { getAllStaff, postStaff, getStaffById, deleteStaffById, updateStaffById } from "../controllers/staff.js";
 
 export const staffRoute = Router();
-
-import { getAllStaff, postStaff, getStaffById, deleteStaffById, updateStaffById } from "../controllers/staff.js";
 
 staffRoute.get("/", getAllStaff);
 
