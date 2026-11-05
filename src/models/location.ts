@@ -1,0 +1,18 @@
+import { Schema, model } from "mongoose";
+
+export interface ILocation {
+    _id?: string;
+    name: string;
+    otherNames: string[];
+    latitude: number;
+    longitude: number;
+}
+
+const LocationSchema = new Schema<ILocation>({
+    name: { type: String, required: true },
+    otherNames: [String],
+    latitude: { type: Number, required: true },
+    longitude: { type: Number, required: true }
+});
+  
+export const Location = model<ILocation>("Location", LocationSchema);
