@@ -12,7 +12,7 @@ export const createTruck = async (req: Request, res: Response) => {
     }
 };
 
-export const getAllTrucks = async (req: Request, res: Response) => {
+export const getTrucks = async (req: Request, res: Response) => {
     try {
         const trucks = await Truck.find();
         res.status(200).json({data: trucks});
