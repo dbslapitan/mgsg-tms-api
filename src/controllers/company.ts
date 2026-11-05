@@ -7,7 +7,7 @@ export const getAllCompanies = async (req: Request, res: Response) => {
     res.status(200).json({ data: companies });
   }
   catch (error) {
-    res.status(500).json({ error: 'Failed to fetch companies', details: error });
+    res.status(500).json({ message: 'Error fetching companies', error });
     return;
   }
 };
@@ -20,7 +20,7 @@ export const postCompany = async (req: Request, res: Response) => {
     res.status(201).json({ data: newCompany });
   }
   catch (error) {
-    res.status(500).json({ error: 'Failed to create company', details: error });
+    res.status(500).json({ message: 'Error creating company', error });
     return;
   }
 };
@@ -36,7 +36,7 @@ export const getCompanyById = async (req: Request, res: Response) => {
     res.status(200).json({ data: company });
   }
   catch (error) {
-    res.status(500).json({ error: 'Failed to fetch company', details: error });
+    res.status(500).json({ message: 'Error fetching company', error });
     return;
   }
 };
@@ -52,7 +52,7 @@ export const deleteCompanyById = async (req: Request, res: Response) => {
     res.status(200).json({ data: company });
   }
   catch (error) {
-    res.status(500).json({ error: 'Failed to delete company', details: error });
+    res.status(500).json({ message: 'Error deleting company', error });
     return;
   }
 };
@@ -69,7 +69,7 @@ export const updateCompanyById = async (req: Request, res: Response) => {
     res.status(200).json({ data: company });
   }
   catch (error) {
-    res.status(500).json({ error: 'Failed to update company', details: error });
+    res.status(500).json({ message: 'Error updating company', error });
     return;
   }
 };
