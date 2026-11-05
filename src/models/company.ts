@@ -1,6 +1,7 @@
 import { model, Schema } from 'mongoose';
 
 export interface ICompany {
+  _id?: string;
   name: string;
   address?: string;
   contact?: {
