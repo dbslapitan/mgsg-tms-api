@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 export interface IOwner {
     truckingName: string;
-    contact: {
+    contact?: {
       name?: string;
       email?: string;
       phone?: string;
