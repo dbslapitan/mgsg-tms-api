@@ -9,7 +9,7 @@ export interface ILocation {
     description?: string;
 }
 
-const LocationSchema = new Schema<ILocation>({
+const locationSchema = new Schema<ILocation>({
     name: { type: String, required: true },
     otherNames: [String],
     latitude: { type: Number, required: true },
@@ -17,4 +17,4 @@ const LocationSchema = new Schema<ILocation>({
     description: { type: String }
 });
   
-export const Location = model<ILocation>("Location", LocationSchema);
+export const Location = model<ILocation>("Location", locationSchema);

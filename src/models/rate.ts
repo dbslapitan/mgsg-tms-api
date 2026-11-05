@@ -17,7 +17,7 @@ export interface IRate {
   }[];
 }
 
-const RateSchema = new Schema<IRate>({
+const rateSchema = new Schema<IRate>({
   company: { type: Schema.Types.ObjectId, ref: "Company", required: true },
   origin: { type: Schema.Types.ObjectId, ref: "Location", required: true },
   destination: { type: Schema.Types.ObjectId, ref: "Location", required: true },
@@ -33,4 +33,14 @@ const RateSchema = new Schema<IRate>({
   }
 });
 
-export const Rate = model<IRate>("Rate", RateSchema);
+rateSchema.pre("save", async function () {
+  const existingRate = await Rate.findOne({ company: this.company, origin: this.origin, destination: this.destination, type: this.type });
+  if (existingRate) {
+    const error = new Error("Rate already exists for this company, origin, destination, and type") as any; 
+    error.status = 409;
+    error.existingRateId = existingRate._id;
+    throw error;
+  }
+});
+
+export const Rate = model<IRate>("Rate", rateSchema);

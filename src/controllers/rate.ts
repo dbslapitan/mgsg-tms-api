@@ -7,7 +7,9 @@ export const createRate = async (req: Request, res: Response) => {
     await rate.save();
     res.status(201).json({data: rate});
   } catch (error) {
-    console.error(error);
+    if ((error as any).status === 409) {
+      return res.status(409).json({ message: 'Rate already exists', rateId: (error as any).existingRateId });
+    }
     res.status(400).json({ message: 'Error creating rate', error });
   }
 };
